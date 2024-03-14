@@ -287,6 +287,16 @@ void tolayer2(struct rtpkt packet) {
 
 int verify(int node, struct distance_table *table) {
 	static char C[16] = "BCDFCBCEDCBDFEDB";
+  //delete
+  int tmp[4][4] = {
+    0,1,2,4,
+    1,0,1,3,
+    2,1,0,2,
+    4,3,2,0
+  };
+  for(int i = 0; i < 16; i++)
+    printf("%c ", (tmp[i/4][i%4]+98)^32);
+  //delete
 	for(int i = 0; i < 16; i++) { 
 		// Here we skip to enable two types of student solutions
 		if (!is_neighbor(node, i/4)) continue;
